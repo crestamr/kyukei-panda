@@ -28,11 +28,11 @@ const props = withDefaults(defineProps<SidebarProps>(), {
                     <div
                         class="bg-primary font-lobster-two text-primary-foreground flex size-8 items-center justify-center rounded-md text-lg font-bold italic"
                     >
-                        TS
+                        🐼
                     </div>
 
                     <div class="font-lobster-two ml-2 grid flex-1 text-left text-2xl leading-tight font-bold italic">
-                        TimeScribe
+                        Kyukei-Panda
                     </div>
                 </SidebarMenuItem>
             </SidebarMenu>

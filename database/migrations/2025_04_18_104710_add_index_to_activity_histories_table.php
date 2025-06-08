@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -18,7 +19,8 @@ return new class extends Migration
             $table->unsignedInteger('duration')->after('ended_at')->default(0);
         });
 
-        DB::statement('UPDATE activity_histories SET duration = ((strftime(\'%s\', ended_at) - strftime(\'%s\', started_at)))');
+        // PostgreSQL compatible duration calculation
+        DB::statement('UPDATE activity_histories SET duration = EXTRACT(EPOCH FROM (ended_at - started_at))');
     }
 
     /**
